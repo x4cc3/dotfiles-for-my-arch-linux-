@@ -1,0 +1,36 @@
+# Ignore caches, logs, compiled assets
+.cache/
+*.log
+**/*.log
+**/Cache/
+**/Crashpad/
+**/GPUCache/
+**/DawnWebGPUCache/
+**/Session Storage/
+**/Shared Dictionary/
+**/Network Persistent State
+**/Cookies
+**/first_party_sets.db*
+**/BrowserMetrics*
+
+# App data / databases
+**/*.db
+**/*.db-journal
+**/*.sqlite
+**/*.sqlite-* 
+notion.db
+
+# Secrets / tokens (add your own patterns here)
+*.key
+*.pem
+*.p12
+*.asc
+*.gpg
+*.age
+
+# Node / build outputs
+node_modules/
+dist/
+build/
+.idea/
+.DS_Store

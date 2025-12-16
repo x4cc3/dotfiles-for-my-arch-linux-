@@ -1,0 +1,91 @@
+* {
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 0px;
+}
+
+window#waybar {
+    background-color: rgba(29, 34, 40, 0.85);
+    border: 1px solid rgba(60, 70, 80, 0.5);
+    color: #E0E0E0;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+
+window#waybar.hidden {
+    opacity: 0.5;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    color: #E0E0E0;
+}
+
+#workspaces button.active {
+    background-color: #3A434F;
+    color: #5294E2;
+    border-bottom: 1px solid #5294E2;
+}
+
+#workspaces button.focused {
+    background-color: #5294E2;
+    color: #1D2228;
+}
+
+#workspaces button.urgent {
+    background-color: #BF616A;
+    color: #E0E0E0;
+}
+
+#mode {
+    background-color: #5294E2;
+    color: #1D2228;
+}
+
+#custom-terminal,
+#window,
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#disk,
+#battery,
+#clock,
+#tray,
+#custom-ip-local,
+#custom-firewall {
+    padding: 0 8px;
+}
+
+#network.disconnected {
+    color: #BF616A;
+}
+
+#battery.charging, #battery.plugged {
+    color: #A3BE8C;
+}
+
+@keyframes blink {
+    to {
+        color: #BF616A;
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: #BF616A;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-firewall.enabled {
+    color: #A3BE8C; /* Green color when firewall is enabled */
+}
+
+#custom-firewall.disabled {
+    color: #BF616A; /* Red color when firewall is disabled */
+}

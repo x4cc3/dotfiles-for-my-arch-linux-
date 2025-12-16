@@ -1,0 +1,140 @@
+// __        __          _
+// \ \      / /_ _ _   _| |__   __ _ _ __
+//  \ \ /\ / / _` | | | | '_ \ / _` | '__|
+//   \ V  V / (_| | |_| | |_) | (_| | |
+//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|
+//                 |___/
+//
+// by Stephan Raabe (2023)
+// -----------------------------------------------------
+//
+{
+    // General Settings
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "margin-top": 5,
+    "margin-left": 5,
+    "margin-right": 5,
+    "spacing": 3,
+
+    "modules-left": [
+        "custom/terminal",
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        "hyprland/window"
+    ],
+
+    "modules-right": [
+        "custom/caffeine",
+        "custom/ip-local",
+        "network",
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "battery",
+        "clock",
+        "tray"
+    ],
+
+    "custom/terminal": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
+    },
+
+    "custom/caffeine": {
+        "format": "{}",
+        "exec": "$HOME/.config/waybar/scripts/caffeine.sh status",
+        "return-type": "json",
+        "on-click": "$HOME/.config/waybar/scripts/caffeine.sh toggle",
+        "tooltip": true
+    },
+
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{name}",
+        "format-icons": {
+            "active": "*",
+            "default": "o"
+        },
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "hyprland/window": {
+        "max-length": 40,
+        "format": "{}"
+    },
+
+    "custom/ip-local": {
+        "format": "VPN: {}",
+        "exec": "ip -4 addr show tun0 2>/dev/null | grep -oP '(?<=inet\\s)\\d+(\\.\\d+){3}' || echo 'N/A'",
+        "interval": 60,
+        "tooltip": true,
+        "tooltip-format": "VPN IP: {}",
+        "escape": true,
+        "on-click": "ip -4 addr show tun0 | grep -oP '(?<=inet\\s)\\d+(\\.\\d+){3}' | wl-copy"
+    },
+
+    "network": {
+        "interface": "wlan0",
+        "format": "{ifname}",
+        "format-wifi": "{ifname}",
+        "format-ethernet": "{ifname}",
+        "format-disconnected": "DOWN",
+        "tooltip-format": "{ifname} - {ipaddr}/{cidr}",
+        "interval": 5
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " mute",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    },
+
+    "cpu": {
+        "format": "CPU:{}%",
+        "interval": 5
+    },
+
+    "memory": {
+        "format": "RAM:{}%",
+        "interval": 10
+    },
+
+    "battery": {
+        "format": "BAT:{capacity}% {icon}",
+        "format-charging": "BAT:{capacity}% ",
+        "format-plugged": "BAT:{capacity}% ",
+        "format-alt": "BAT:{time} {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", "", ""],
+        "states": {
+            "good": 90,
+            "warning": 30,
+            "critical": 20
+        },
+        "tooltip": true
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%d/%m %H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "on-click-right": "mode"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 3
+    }
+}

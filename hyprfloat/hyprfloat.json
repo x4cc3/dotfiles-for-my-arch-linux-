@@ -1,0 +1,15 @@
+{
+    "terminal_classes": [
+        "com.mitchellh.ghostty"
+    ],
+    "ignore_titles": [
+    ],
+    "monitors": {
+        "eDP-1": {
+            "width": 1920,
+            "height": 1080,
+            "offset": [0, 0]
+        }
+    }
+}
+
