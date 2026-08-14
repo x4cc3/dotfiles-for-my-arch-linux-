@@ -110,4 +110,10 @@ rbenv() {
 export BROWSER=helium-browser
 
 # Novita API key (used by omp novita provider; macaron-v1-venti lives here)
-export NOVITA_API_KEY=sk_5kiQllgfKB4gekh3eTFTizX2-Z5ft54BuJNsEAP3SZU
+export NOVITA_API_KEY=sk_EbLfIJiWhB5XXLpm9kijqJxqUmKuA5J3BKmjkwTIM68
+# >>> plamen toolchain PATH >>>
+export PATH="/home/xaccefy/.foundry/bin:/home/xaccefy/go/bin:/home/xaccefy/.cargo/bin:/home/xaccefy/.local/bin:/home/xaccefy/.local/share/solana/install/active_release/bin:/home/xaccefy/.avm/bin:/home/xaccefy/.npm-global/bin:/home/xaccefy/.aptoscli/bin:$PATH"
+# <<< plamen toolchain PATH <<<
+export PATH="$PATH:$HOME/flutter/bin"
+_ZO_DOCTOR=0
+export FFF_ENABLE_HOME_SCAN=0
